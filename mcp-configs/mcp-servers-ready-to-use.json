@@ -1,0 +1,120 @@
+{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "(?)"
+      },
+      "description": "GitHub operations - PRs, issues, repos | Replace (?) with your GitHub Personal Access Token from https://github.com/settings/tokens"
+    },
+    "firecrawl": {
+      "command": "npx",
+      "args": ["-y", "firecrawl-mcp"],
+      "env": {
+        "FIRECRAWL_API_KEY": "(?)"
+      },
+      "description": "Web scraping and crawling | Replace (?) with your Firecrawl API key from https://firecrawl.dev"
+    },
+    "supabase": {
+      "command": "npx",
+      "args": ["-y", "@supabase/mcp-server-supabase@latest", "--project-ref=(?)"],
+      "description": "Supabase database operations | Replace (?) with your Supabase project reference ID from your project settings"
+    },
+    "memory": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-memory"],
+      "description": "Persistent memory across sessions | No configuration needed - ready to use!"
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"],
+      "description": "Chain-of-thought reasoning | No configuration needed - ready to use!"
+    },
+    "vercel": {
+      "type": "http",
+      "url": "https://mcp.vercel.com",
+      "description": "Vercel deployments and projects | No configuration needed - ready to use!"
+    },
+    "railway": {
+      "command": "npx",
+      "args": ["-y", "@railway/mcp-server"],
+      "description": "Railway deployments | No configuration needed - ready to use!"
+    },
+    "cloudflare-docs": {
+      "type": "http",
+      "url": "https://docs.mcp.cloudflare.com/mcp",
+      "description": "Cloudflare documentation search | No configuration needed - ready to use!"
+    },
+    "cloudflare-workers-builds": {
+      "type": "http",
+      "url": "https://builds.mcp.cloudflare.com/mcp",
+      "description": "Cloudflare Workers builds | No configuration needed - ready to use!"
+    },
+    "cloudflare-workers-bindings": {
+      "type": "http",
+      "url": "https://bindings.mcp.cloudflare.com/mcp",
+      "description": "Cloudflare Workers bindings | No configuration needed - ready to use!"
+    },
+    "cloudflare-observability": {
+      "type": "http",
+      "url": "https://observability.mcp.cloudflare.com/mcp",
+      "description": "Cloudflare observability/logs | No configuration needed - ready to use!"
+    },
+    "clickhouse": {
+      "type": "http",
+      "url": "https://mcp.clickhouse.cloud/mcp",
+      "description": "ClickHouse analytics queries | No configuration needed - ready to use!"
+    },
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@context7/mcp-server"],
+      "description": "Live documentation lookup | No configuration needed - ready to use!"
+    },
+    "magic": {
+      "command": "npx",
+      "args": ["-y", "@magicuidesign/mcp@latest"],
+      "description": "Magic UI components | No configuration needed - ready to use!"
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "(?)"],
+      "description": "Filesystem operations | Replace (?) with the absolute path to your projects directory (e.g., /Users/yourname/projects or C:\\Users\\yourname\\projects)"
+    }
+  },
+  "_instructions": {
+    "step_1": "Search for all (?) placeholders in this file",
+    "step_2": "Replace each (?) with the appropriate value as described in the 'description' field",
+    "step_3": "Remove any MCP servers you don't need (to preserve context window)",
+    "step_4": "Copy the entire 'mcpServers' object to your ~/.claude/settings.json file",
+    "step_5": "Restart Claude Code for changes to take effect"
+  },
+  "_required_replacements": {
+    "github": "GitHub Personal Access Token - Get from: https://github.com/settings/tokens (needs repo, read:org scopes)",
+    "firecrawl": "Firecrawl API Key - Get from: https://firecrawl.dev",
+    "supabase": "Supabase Project Reference ID - Found in your Supabase project settings URL",
+    "filesystem": "Absolute path to your projects directory (e.g., /Users/yourname/projects)"
+  },
+  "_optional_servers": {
+    "note": "These servers work without configuration - remove the ones you don't need:",
+    "ready_to_use": [
+      "memory",
+      "sequential-thinking",
+      "vercel",
+      "railway",
+      "cloudflare-docs",
+      "cloudflare-workers-builds",
+      "cloudflare-workers-bindings",
+      "cloudflare-observability",
+      "clickhouse",
+      "context7",
+      "magic"
+    ]
+  },
+  "_tips": {
+    "context_limit": "Keep under 10 MCP servers enabled to preserve context window",
+    "security": "NEVER commit this file with real API keys to git!",
+    "testing": "Test one MCP server at a time to verify configuration",
+    "disabling": "To disable per-project, use 'disabledMcpServers' array in project config"
+  }
+}
